@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_has_training/screens/bmi_screen.dart';
+import 'package:flutter_application_has_training/screens/intro_screen.dart';
 
 void main() {
   runApp(const GlobeApp());
@@ -9,19 +11,13 @@ class GlobeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(title: const Text('Globo Fitness')),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/beach.jpg'),
-            fit: BoxFit.cover,
-          )
-        ),
-        child: const Center(
-            child: Text('Commit to be fit, dare to be great with Globo')),
-      ),
-    ));
+    return  MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      routes: {
+        '/':(context) => const IntroScreen(),
+        '/bmi': (context) => const BmiScreen(),
+      },
+      initialRoute: '/',
+    );
   }
 }
